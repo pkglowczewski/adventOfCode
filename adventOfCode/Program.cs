@@ -13,6 +13,6 @@ foreach(var item in text)
         sum = 0;
     }
 }
-var result = list.OrderByDescending(x => x).FirstOrDefault();
+var result = list.OrderByDescending(x => x).Take(3).Sum();
 Console.WriteLine(result);
 Console.ReadKey();
