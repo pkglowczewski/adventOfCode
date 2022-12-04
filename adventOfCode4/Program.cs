@@ -7,7 +7,12 @@ foreach (string line in text)
     var firstSetsecondEl = Convert.ToInt32(items[0].Split('-')[1]);
     var secondSetfirstEl = Convert.ToInt32(items[1].Split('-')[0]);
     var seocndSetsecondEl = Convert.ToInt32(items[1].Split('-')[1]);
-    if (firstSetfirstEl <= secondSetfirstEl && firstSetsecondEl >= seocndSetsecondEl || secondSetfirstEl <= firstSetfirstEl && firstSetsecondEl <= seocndSetsecondEl)
+    if (firstSetfirstEl <= secondSetfirstEl && firstSetsecondEl >= secondSetfirstEl 
+        || firstSetfirstEl <= secondSetfirstEl && seocndSetsecondEl <= firstSetsecondEl 
+        || firstSetfirstEl <= seocndSetsecondEl && firstSetsecondEl >= seocndSetsecondEl
+        || secondSetfirstEl <= firstSetfirstEl && seocndSetsecondEl >= firstSetfirstEl
+        || secondSetfirstEl <= firstSetfirstEl && firstSetsecondEl <= seocndSetsecondEl
+        || secondSetfirstEl <= firstSetsecondEl && seocndSetsecondEl >= firstSetsecondEl)
     {
         sum += 1;
     }
