@@ -33,12 +33,20 @@ object[] stacks = { myStack1, myStack2, myStack3, myStack4, myStack5, myStack6, 
 foreach (string line in text)
 {
     var splittedLine = line.Split(' ');
+    Stack temp = new Stack();
     for (int i = 0; i < Convert.ToInt32(splittedLine[1]); i++)
     {
         Stack fromStack = (Stack)stacks[Convert.ToInt32(splittedLine[3]) - 1];
         Stack toStack = (Stack)stacks[Convert.ToInt32(splittedLine[5]) - 1];
         var lastValue = fromStack.Pop();
-        toStack.Push(lastValue);
+        temp.Push(lastValue);
+        if(temp.Count == Convert.ToInt32(splittedLine[1]))
+        {
+            while(temp.Count > 0)
+            {
+                toStack.Push(temp.Pop());
+            }
+        }
 
     }
 }
