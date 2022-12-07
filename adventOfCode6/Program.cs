@@ -3,13 +3,17 @@
 int i = 0;
 while (text.Length > 0)
 {
-    string result = $"{text[i]}{text[i+1]}{text[i+2]}{text[i+3]}";
+    string result = "";
+    for (int j = 0; j < 14; j++)
+    {
+        result += text[j+i];
+    }
     var groups = result.GroupBy(c => c).Where(g => g.Count() > 1);
-    i++;
     if (groups.Count() == 0)
     {
-        Console.WriteLine(i + 3);
+        Console.WriteLine(i + 14);
         break;
     }
+    i++;
 }
 Console.ReadKey();
